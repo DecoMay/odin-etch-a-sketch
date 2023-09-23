@@ -45,9 +45,8 @@ function changeColor(e) {
     console.log(e.target.className == 'grid colored');
 }
 
-createGrid();
-clearButton.addEventListener('click', createGrid);
-colorButton.addEventListener('click', () => {
+
+function changeColorMode() {
     if (colorMode === 'black') {
         colorMode = 'color';
         colorButton.style.background = randomColor();
@@ -57,8 +56,14 @@ colorButton.addEventListener('click', () => {
         colorButton.style.color = 'white';
     }
     createGrid();
-});
-changeRes.addEventListener('click', () => {
+}
+
+function changeGridRes() {
     gridRes = Number(prompt('1-100'));
     createGrid();
-})
+}
+
+createGrid();
+clearButton.addEventListener('click', createGrid);
+colorButton.addEventListener('click', changeColorMode);
+changeRes.addEventListener('click', changeGridRes)
