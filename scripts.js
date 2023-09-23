@@ -7,7 +7,7 @@ let colorMode = 'black';
 let gridRes = 10;
 
 function createGrid() {
-    if (!isNaN(gridRes)) {
+    if (!isNaN(gridRes) && (gridRes > 1 && gridRes <= 100)) {
         while (div.firstChild) {
             div.removeChild(div.lastChild);
         }
