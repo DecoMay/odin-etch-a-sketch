@@ -1,11 +1,26 @@
 const div = document.querySelector('.container');
 const BASE_CANVAS_SIZE = 600;
+const gridRes = 10;
 
-for (let i = 0; i < (16 * 16); i++) {
-    let gridDiv = document.createElement('div');
-    gridDiv.textContent = `${i}`;
-    gridDiv.style.width = `${(600 / 16)}px`;
-    gridDiv.style.height = `${(600 / 16)}px`;
-    gridDiv.classList.add('grid');
-    div.appendChild(gridDiv);
+
+function createGrid() {
+    while (div.firstChild) {
+        div.removeChild(div.lastChild);
+    }
+
+    for (let i = 0; i < (gridRes * gridRes); i++) {
+        let gridDiv = document.createElement('div');
+        // gridDiv.textContent = `${i}`;
+        gridDiv.style.width = `${(BASE_CANVAS_SIZE / gridRes)}px`;
+        gridDiv.style.height = `${(BASE_CANVAS_SIZE / gridRes)}px`;
+        gridDiv.classList.add('grid');
+        gridDiv.addEventListener('mouseenter', changeColor);
+        div.appendChild(gridDiv);
+    }
+}
+
+function changeColor(e) {
+    let currentGrid = e.target;
+    currentGrid.style.background = 'black';
+    // currentGrid.style.color = 'white';
 }
