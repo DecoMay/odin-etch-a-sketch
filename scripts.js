@@ -1,5 +1,5 @@
 const div = document.querySelector('.container');
-const CANVAS_SIZE = 600;
+const BASE_CANVAS_SIZE = 600;
 
 for (let i = 0; i < (16 * 16); i++) {
     let gridDiv = document.createElement('div');
